@@ -7,11 +7,11 @@ name = "pypi"
 gunicorn = "*"
 flask = "*"
 scikit-learn = "*"
-plotly = "*"
+
 
 [dev-packages]
 scikit-learn = "*"
-plotly = "*"
+
 
 [requires]
 python_version = "3.6"
