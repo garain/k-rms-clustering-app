@@ -1,15 +1,17 @@
 """Flask App Project."""
 
 from flask import Flask, jsonify
+import k-rms_iris
 app = Flask(__name__)
 
 
 @app.route('/')
 def index():
     """Return homepage."""
-    json_data = {'Hello': 'World!'}
-    return jsonify(json_data)
-
+    #json_data = {'Hello': 'World!'}
+    #return jsonify(json_data)
+    return k-rms_iris.main()
+    
 
 if __name__ == '__main__':
     app.run()
