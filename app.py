@@ -1,7 +1,8 @@
 """Flask App Project."""
 
 from flask import Flask, jsonify
-import k-rms_iris.*
+import krms_iris
+
 app = Flask(__name__)
 
 
