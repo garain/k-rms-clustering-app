@@ -1,11 +1,12 @@
 """Flask App Project."""
 
 from flask import *
+import os
 #Flask, jsonify, render_template
 from krms_iris import *
 
 app = Flask(__name__)
-
+app.config['/']
 #File=str()
 @app.route('/')  
 def upload():  
@@ -22,8 +23,9 @@ def success():
 def index():
     """Return homepage."""
     if request.method == 'POST':  
-        f = request.files['file']
-        json_data = main(f.filename)#{'Hello': 'World!'}
+        files = os.listdir("/")    
+        files = list(filter(lambda f: f.endswith('.csv'), files))
+        json_data = main(files[0])#{'Hello': 'World!'}
         #return jsonify(json_data)
         return jsonify(json_data)     
 
