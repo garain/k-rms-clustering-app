@@ -75,8 +75,10 @@ def main():
     )
     z=[]
     # Print our best clusters
+    List=dict()
     for i, c in enumerate(best_clusters):
         for p in c.points:
+            List["Cluster:%s"%(i)]="Point :"+ str(p)
             #print( " Cluster: ", i, "\t Point :", p)
             z.append(i)
 
@@ -87,8 +89,9 @@ def main():
         
     from sklearn.cluster import KMeans
     from sklearn import metrics as sm
-    print("Accuracy:",sm.accuracy_score(Y,z))
-
+    #print("Accuracy:",sm.accuracy_score(Y,z))
+    List["Accuracy:"]=str(sm.accuracy_score(Y,z))
+    return List
 
 #############################################################################
 # K-rms Methods
