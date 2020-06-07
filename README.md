@@ -6,6 +6,7 @@ This is the web app created as an implementation of the publication "K-RMS Algor
 If we want to deploy our project to Heroku, we need a **Web Server Gateway Interface** (WSGI) such as **Gunicorn**.
 
 # Usage of the app
+By default if any file with wrong file format is provided, the results shown as output are calculated on the Iris dataset.
 
 Specificatons of the file:
 
