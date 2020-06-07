@@ -7,11 +7,12 @@ name = "pypi"
 gunicorn = "*"
 flask = "*"
 scikit-learn = "*"
+pandas = "*"
 
 
 [dev-packages]
 scikit-learn = "*"
-
+pandas = "*"
 
 [requires]
 python_version = "3.6"
