@@ -11,13 +11,14 @@ Created on Tue Jul 10 20:48:36 2018
 from __future__ import division
 import math
 import random
-import time
+
 from sklearn.datasets import load_iris
 
 a=[]
 total_iterations=0
 i_flag=0
-start_time=time.time()
+
+List=dict()
 def main(Name):
 
     # How many points are in our dataset?
@@ -71,7 +72,7 @@ def main(Name):
     )
     z=[]
     # Print our best clusters
-    List=dict()
+    
     for i, c in enumerate(best_clusters):
         for p in c.points:
             List["Cluster:%s"%(i)]="Point :"+ str(p)
@@ -101,7 +102,7 @@ def iterative_krms(points, num_clusters, cutoff, iteration_count):
 
     Returns the best set of clusters found.
     """
-    print ("Running K-rms %d times to find best clusters ..." % iteration_count)
+    List["Message"]="Running K-rms %d times to find best clusters ..."%(iteration_count)
     candidate_clusters = []
     errors = []
     for _ in range(iteration_count):
@@ -112,10 +113,10 @@ def iterative_krms(points, num_clusters, cutoff, iteration_count):
 
     highest_error = max(errors)
     lowest_error = min(errors)
-    print ("Lowest error found: %.2f (Highest: %.2f)" % (
+    List["Error"]="Lowest error found: %.2f (Highest: %.2f)" % (
         lowest_error,
         highest_error
-    ))
+    )
     ind_of_lowest_error = errors.index(lowest_error)
     best_clusters = candidate_clusters[ind_of_lowest_error]
 
