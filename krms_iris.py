@@ -36,17 +36,23 @@ def main(Name):
     num_clusters = 3
 
     # When do we say the process has 'converged' and stop updating clusters?
-    cutoff = .2#Scope of improvement.Making it automatic using DL algos.For faster speeds increase its value.
+    cutoff = .01#Scope of improvement.Making it automatic using DL algos.For faster speeds increase its value.
     
     # Generate some points to cluster
     # Note: If you want to use your own data, set points equal to it here.
-    import pandas as pd
-    dataset = pd.read_csv(Name)
-    train = dataset.iloc[:, 3:5].values
-    #iris=load_iris()
-    #X=iris.data
-    #Y=iris.target
-    Y = list(dataset.iloc[:, 25].values)
+    if Name!='' or Name!=None:
+        import pandas as pd
+        dataset = pd.read_csv(Name)
+        train = dataset.iloc[:, 0:len(dataset.columns)-1].values
+        Y = list(dataset.iloc[:, len(dataset.columns)].values)
+        #from sklearn.preprocessing import MinMaxScaler
+        from sklearn.manifold import TSNE
+        train=TSNE(n_components=3).fit_transform(train)
+    else:
+        iris=load_iris()
+        train=iris.data
+        Y=iris.target
+    
     points=[Point(i[:3]) for i in train]#Method for converting 2 arrays to(x,y) form
 
     # Cluster those data!
@@ -66,7 +72,7 @@ def main(Name):
             #print( " Cluster: ", i, "\t Point :", p)
             z.append(i+1)
         
-    from sklearn.cluster import KMeans
+    
     from sklearn import metrics as sm
     #print("Accuracy:",sm.accuracy_score(Y,z))
     List["Accuracy:"]=str(sm.accuracy_score(Y,z))
