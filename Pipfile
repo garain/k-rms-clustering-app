@@ -8,7 +8,7 @@ gunicorn = "*"
 flask = "*"
 
 [dev-packages]
-sklearn = "*"
+scikit-learn = "*"
 plotly = "*"
 
 [requires]
