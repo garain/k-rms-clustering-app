@@ -9,9 +9,9 @@ app = Flask(__name__)
 @app.route('/')
 def index():
     """Return homepage."""
-    #json_data = {'Hello': 'World!'}
+    json_data = main()#{'Hello': 'World!'}
     #return jsonify(json_data)
-    return main()
+    return jsonify(json_data)
     
 
 if __name__ == '__main__':
