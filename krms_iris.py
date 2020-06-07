@@ -13,30 +13,10 @@ import math
 import random
 import time
 from sklearn.datasets import load_iris
-"""
-This is a pure Python implementation of the K-rms Clustering algorithm.
 
-This script specifically avoids using numpy or other more obscure libraries. It
-is meant to be *clear* not fast.
-
-I have also added integration with the plot.ly plotting library. So you can see
-the clusters found by this algorithm. To install run:
-
-```
-pip install plotly
-```
-
-This script uses an offline plotting mode and will store and open plots locally.
-To store and share plots online sign up for a plotly API key at https://plot.ly.
-"""
 a=[]
 total_iterations=0
-plotly = False
-try:
-    import plotly
-    from plotly.graph_objs import Scatter, Scatter3d, Layout
-except ImportError:
-    print ("INFO: Plotly is not installed, plots will not be generated.")
+
 start_time=time.time()
 def main():
 
@@ -81,11 +61,6 @@ def main():
             List["Cluster:%s"%(i)]="Point :"+ str(p)
             #print( " Cluster: ", i, "\t Point :", p)
             z.append(i)
-
-    # Display clusters using plotly for 2d data
-    #if dimensions in [2, 3] and plotly:
-     #   print ("Plotting points, launching browser ...")
-        #plotClusters(best_clusters, dimensions)
         
     from sklearn.cluster import KMeans
     from sklearn import metrics as sm
@@ -327,88 +302,3 @@ def calculateError(clusters):
 
     error = accumulatedDistances / num_points
     return error
-
-def plotClusters(data, dimensions):
-    '''
-    This uses the plotly offline mode to create a local HTML file.
-    This should open your default web browser.
-    '''
-    if dimensions not in [2, 3]:
-        raise Exception("Plots are only available for 2 and 3 dimensional data")
-
-    # Convert data into plotly format.
-    traceList = []
-    for i, c in enumerate(data):
-        # Get a list of x,y coordinates for the points in this cluster.
-        cluster_data = []
-        for point in c.points:
-            cluster_data.append(point.coords)
-
-        trace = {}
-        centroid = {}
-        if dimensions == 2:
-            # Convert our list of x,y's into an x list and a y list.
-            trace['x'], trace['y'] = zip(*cluster_data)
-            trace['mode'] = 'markers'
-            trace['marker'] = {}
-            trace['marker']['symbol'] = i
-            trace['marker']['size'] = 12
-            trace['name'] = "Cluster " + str(i)
-            traceList.append(Scatter(**trace))
-            # Centroid (A trace of length 1)
-            centroid['x'] = [c.centroid.coords[0]]
-            centroid['y'] = [c.centroid.coords[1]]
-            centroid['mode'] = 'markers'
-            centroid['marker'] = {}
-            centroid['marker']['symbol'] = i
-            centroid['marker']['color'] = 'rgb(200,10,10)'
-            centroid['name'] = "Centroid " + str(i)
-            traceList.append(Scatter(**centroid))
-        else:
-            symbols = [
-                "circle",
-                "square",
-                "diamond",
-                "circle-open",
-                "square-open",
-                "diamond-open",
-                "cross", "x"
-            ]
-            symbol_count = len(symbols)
-            if i > symbol_count:
-                print ("Warning: Not enough marker symbols to go around")
-            # Convert our list of x,y,z's separate lists.
-            trace['x'], trace['y'], trace['z'] = zip(*cluster_data)
-            trace['mode'] = 'markers'
-            trace['marker'] = {}
-            trace['marker']['symbol'] = symbols[i]
-            trace['marker']['size'] = 12
-            trace['name'] = "Cluster " + str(i)
-            traceList.append(Scatter3d(**trace))
-            # Centroid (A trace of length 1)
-            centroid['x'] = [c.centroid.coords[0]]
-            centroid['y'] = [c.centroid.coords[1]]
-            centroid['z'] = [c.centroid.coords[2]]
-            centroid['mode'] = 'markers'
-            centroid['marker'] = {}
-            centroid['marker']['symbol'] = symbols[i]
-            centroid['marker']['color'] = 'rgb(200,10,10)'
-            centroid['name'] = "Centroid " + str(i)
-            traceList.append(Scatter3d(**centroid))
-
-    title = "K-rms clustering with %s clusters" % str(len(data))
-    plotly.offline.plot({
-        "data": traceList,
-        "layout": Layout(title=title)
-    })
-
-# if __name__ == "__main__":
-    # main()
-
-
-# elapsed_time=time.time()-start_time
-# print("Elapsed time=%.16f"%(elapsed_time))
-# for iteration in a:
-    # total_iterations+=iteration
-# print("Total iterations=%d"%(total_iterations))
-# #print(iteration_total
