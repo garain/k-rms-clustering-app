@@ -6,6 +6,7 @@ import os
 from krms_iris import *
 
 app = Flask(__name__)
+app.secret_key = "krms"  
 #app.config['UPLOAD_FOLDER']="/"
 #File=str()
 @app.route('/')  
