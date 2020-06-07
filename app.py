@@ -22,7 +22,8 @@ def success():
 def index():
     """Return homepage."""
     if request.method == 'POST':  
-        json_data = main(name)#{'Hello': 'World!'}
+        f = request.files['file']
+        json_data = main(f.filename)#{'Hello': 'World!'}
         #return jsonify(json_data)
         return jsonify(json_data)     
 
