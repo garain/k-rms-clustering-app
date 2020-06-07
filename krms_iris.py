@@ -79,7 +79,8 @@ def main(Name):
     
     from sklearn import metrics as sm
     #print("Accuracy:",sm.accuracy_score(Y,z))
-    List["Accuracy:"]=str(sm.accuracy_score(Y,z))
+    if len(Y)>0:
+        List["Accuracy:"]=str(sm.accuracy_score(Y,z))
     return List
 
 #############################################################################
