@@ -18,7 +18,7 @@ a=[]
 total_iterations=0
 
 start_time=time.time()
-def main():
+def main(Name):
 
     # How many points are in our dataset?
     #num_points = 50
@@ -40,10 +40,14 @@ def main():
     
     # Generate some points to cluster
     # Note: If you want to use your own data, set points equal to it here.
-    iris=load_iris()
-    X=iris.data
-    Y=iris.target
-    points=[Point([X[i][2],X[i][3],X[i][1]]) for i in range(len(X))]#Method for converting 2 arrays to(x,y) form
+    import pandas as pd
+    dataset = pd.read_csv(Name)
+    train = dataset.iloc[:, 3:5].values
+    #iris=load_iris()
+    #X=iris.data
+    #Y=iris.target
+    Y = list(dataset.iloc[:, 25].values)
+    points=[Point(i[:3]) for i in train]#Method for converting 2 arrays to(x,y) form
 
     # Cluster those data!
     iteration_count =5 #Scope of improvement using GRADIENT DELUDE algo.Decide the value automatically.
@@ -60,7 +64,7 @@ def main():
         for p in c.points:
             List["Cluster:%s"%(i)]="Point :"+ str(p)
             #print( " Cluster: ", i, "\t Point :", p)
-            z.append(i)
+            z.append(i+1)
         
     from sklearn.cluster import KMeans
     from sklearn import metrics as sm
