@@ -1,58 +1,55 @@
-# Deploy Your Flask Project To Heroku
+# Deployed Flask implementation of K-RMS Algorithm in Heroku
 
-This is an example repository that uses **Flask** and **Gunicorn** to deploy your project to Heroku.
+This is the web app created as an implementation of the publication "K-RMS Algorithm" that uses **Flask** and **Gunicorn** for deploying.
 
-# Problematic
-
-Currently, Flask is not suitable for a production environment and it doesn't scale well (see [flask documentation on deployment](http://flask.pocoo.org/docs/1.0/deploying/)).
 
 If we want to deploy our project to Heroku, we need a **Web Server Gateway Interface** (WSGI) such as **Gunicorn**.
 
-# Solution
+#Usage of the app
 
-To overcome this obstacle we can use **Gunicorn** to aide us deploy our Flask project into a Heroku app.
+Specificatons of the file:
 
-This guide _assumes_ that you already had gone through the process of installing and authenticating the [Heroku Toolbelt](https://devcenter.heroku.com/articles/heroku-cli).
+1) 1st row should have data headings, i.e., column headings.
+2) The last column should contain the corresponding data labels in an ascending order starting from index 1 (N.B. The number of clusters is calculated using this column.
+3) File should be strictly in .csv format.
+4) File size should be <=600 KB.
 
-At this point you should be able to modify the Flask app `app.py`:
-```python
-"""Flask App Project."""
+#Output
+Dictionary with Accuracy and Clusters and corresponding points assigned to each cluster.
 
-from flask import Flask, jsonify
-app = Flask(__name__)
+#Publication details
 
+#Authors
+Avishek Garain, Dipankar Das
 
-@app.route('/')
-def index():
-    """Return homepage."""
-    json_data = {'Hello': 'World!'}
-    return jsonify(json_data)
+#Publication date
+2020/1/1
 
+#Journal
+Procedia Computer Science
+#Volume
+167
 
-if __name__ == '__main__':
-    app.run()
-```
+#Pages
+113-120
 
-**WARNING:** If you change the file name (`app.py`) and the Flask **app** (`app = Flask(__name__)`) then remember to change Heroku's Procfile:
-```
-web: gunicorn <filename>:<app_name>
-```
+#Publisher
+Elsevier
 
-## Create Your Heroku App
+#Abstract
+Clustering is an unsupervised learning problem in the domain of machine learning and data science, where information about data instances may or may not be given. K-Means algorithm is one such clustering algorithms, the use of which is widespread. But, at the same time K-Means suffers from a few disadvantages such as low accuracy and high number of iterations. In order to rectify such problems, a modified K-Means algorithm has been demonstrated, named as K-RMS clustering algorithm in the present work. The modifications have been done so that the accuracy increases albeit with less number of iterations and specially performs well for decimal data compared to K-Means. The modified algorithm has been tested on 12 datasets obtained from UCI web archive, and the results gathered are very promising.
 
-You can also leave `your_app_name` empty if you want Heroku to create a randomized name.
+#Bibtex
 
-```
-$ heroku create your_app_name
-Creating app... done, ⬢ your_app_name
-https://your_app_name.herokuapp.com/ | https://git.heroku.com/your_app_name.git
-```
+@article{garain2020k,
+  title={K-RMS Algorithm},
+  author={Garain, Avishek and Das, Dipankar},
+  journal={Procedia Computer Science},
+  volume={167},
+  pages={113--120},
+  year={2020},
+  publisher={Elsevier}
+}
 
-## Deploy Your Project
-
-Your project is going to be deploy using **gunicorn** as a web server using the **Procfile** and it will be detected as a Python project since it is declared in **runtime.txt**
-
-* **Add necessary files and commit them**
-
-
-That's it, you can visit your app now with `heroku open`.
+#Harvard-style
+Garain, A. and Das, D., 2020. K-RMS Algorithm. Procedia Computer Science, 167, pp.113-120.
