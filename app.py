@@ -17,12 +17,13 @@ def success():
         f = request.files['file']  
         f.save(f.filename)  
         return render_template("success.html", name = f.filename)  
-@app.route('/results')
+@app.route('/results', methods = ['POST'])
 def index():
     """Return homepage."""
-    json_data = main()#{'Hello': 'World!'}
-    #return jsonify(json_data)
-    return jsonify(json_data)     
+    if request.method == 'POST':  
+        json_data = main()#{'Hello': 'World!'}
+        #return jsonify(json_data)
+        return jsonify(json_data)     
 
 if __name__ == '__main__':
     app.run()
