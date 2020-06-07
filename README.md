@@ -5,7 +5,7 @@ This is the web app created as an implementation of the publication "K-RMS Algor
 
 If we want to deploy our project to Heroku, we need a **Web Server Gateway Interface** (WSGI) such as **Gunicorn**.
 
-#Usage of the app
+# Usage of the app
 
 Specificatons of the file:
 
@@ -14,32 +14,36 @@ Specificatons of the file:
 3) File should be strictly in .csv format.
 4) File size should be <=600 KB.
 
-#Output
+# Output
 Dictionary with Accuracy and Clusters and corresponding points assigned to each cluster.
 
-#Publication details
+# Publication details
 
-#Authors
+# DOI
+https://doi.org/10.1016/j.procs.2020.03.188
+
+# Authors
 Avishek Garain, Dipankar Das
 
-#Publication date
+# Publication date
 2020/1/1
 
-#Journal
+# Journal
 Procedia Computer Science
-#Volume
+
+# Volume
 167
 
-#Pages
+# Pages
 113-120
 
-#Publisher
+# Publisher
 Elsevier
 
-#Abstract
+# Abstract
 Clustering is an unsupervised learning problem in the domain of machine learning and data science, where information about data instances may or may not be given. K-Means algorithm is one such clustering algorithms, the use of which is widespread. But, at the same time K-Means suffers from a few disadvantages such as low accuracy and high number of iterations. In order to rectify such problems, a modified K-Means algorithm has been demonstrated, named as K-RMS clustering algorithm in the present work. The modifications have been done so that the accuracy increases albeit with less number of iterations and specially performs well for decimal data compared to K-Means. The modified algorithm has been tested on 12 datasets obtained from UCI web archive, and the results gathered are very promising.
 
-#Bibtex
+# Bibtex
 
 @article{garain2020k,
   title={K-RMS Algorithm},
@@ -51,5 +55,5 @@ Clustering is an unsupervised learning problem in the domain of machine learning
   publisher={Elsevier}
 }
 
-#Harvard-style
+# Harvard-style
 Garain, A. and Das, D., 2020. K-RMS Algorithm. Procedia Computer Science, 167, pp.113-120.
