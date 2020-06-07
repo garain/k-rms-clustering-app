@@ -16,7 +16,7 @@ from sklearn.datasets import load_iris
 
 a=[]
 total_iterations=0
-
+i_flag=0
 start_time=time.time()
 def main(Name):
 
@@ -54,8 +54,10 @@ def main(Name):
         iris=load_iris()
         train=iris.data
         Y=iris.target
+        cutoff=0.2
         N_cols=3
         num_clusters = 3
+        i_flag=1
     
     points=[Point(i[:N_cols]) for i in train]#Method for converting 2 arrays to(x,y) form
 
@@ -74,7 +76,10 @@ def main(Name):
         for p in c.points:
             List["Cluster:%s"%(i)]="Point :"+ str(p)
             #print( " Cluster: ", i, "\t Point :", p)
-            z.append(i+1)
+            if i_flag==0:
+                z.append(i+1)
+            else:
+                z.append(i)
         
     
     from sklearn import metrics as sm
