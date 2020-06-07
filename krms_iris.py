@@ -77,13 +77,13 @@ def main():
     # Print our best clusters
     for i, c in enumerate(best_clusters):
         for p in c.points:
-            print( " Cluster: ", i, "\t Point :", p)
+            #print( " Cluster: ", i, "\t Point :", p)
             z.append(i)
 
     # Display clusters using plotly for 2d data
-    if dimensions in [2, 3] and plotly:
-        print ("Plotting points, launching browser ...")
-        plotClusters(best_clusters, dimensions)
+    #if dimensions in [2, 3] and plotly:
+     #   print ("Plotting points, launching browser ...")
+        #plotClusters(best_clusters, dimensions)
         
     from sklearn.cluster import KMeans
     from sklearn import metrics as sm
