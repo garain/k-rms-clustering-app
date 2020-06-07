@@ -6,7 +6,7 @@ import os
 from krms_iris import *
 
 app = Flask(__name__)
-app.config['UPLOAD_FOLDER']="/"
+#app.config['UPLOAD_FOLDER']="/"
 #File=str()
 @app.route('/')  
 def upload():  
@@ -18,15 +18,16 @@ def success():
         f = request.files['file']  
         f.save(f.filename)  
         #File=f.filename
+        json_data = main(f.filename)
+        session['data'] = json_data
         return render_template("success.html", name = f.filename)  
 @app.route('/results', methods = ['POST'])
 def index():
     """Return homepage."""
-    if request.method == 'POST':  
-        files = os.listdir("/")    
-        files = list(filter(lambda f: f.endswith('.csv'), files))
-        json_data = main(files[0])#{'Hello': 'World!'}
+    if request.method == 'POST': 
+        #{'Hello': 'World!'}
         #return jsonify(json_data)
+        json_data=session.get('data', None)
         return jsonify(json_data)     
 
 if __name__ == '__main__':
