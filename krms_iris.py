@@ -43,8 +43,8 @@ def main(Name):
     if Name!='' or Name!=None:
         import pandas as pd
         dataset = pd.read_csv(Name)
-        train = dataset.iloc[:, 0:len(dataset.columns)-1].values
-        Y = list(dataset.iloc[:, len(dataset.columns)].values)
+        train = dataset.iloc[:, 0:len(dataset.columns)-2].values
+        Y = list(dataset.iloc[:, len(dataset.columns)-1].values)
         #from sklearn.preprocessing import MinMaxScaler
         from sklearn.manifold import TSNE
         train=TSNE(n_components=3).fit_transform(train)
