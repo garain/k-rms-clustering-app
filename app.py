@@ -1,6 +1,7 @@
 """Flask App Project."""
 
-from flask import Flask, jsonify
+from flask import *
+#Flask, jsonify, render_template
 from krms_iris import *
 
 app = Flask(__name__)
