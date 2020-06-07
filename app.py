@@ -6,7 +6,7 @@ import os
 from krms_iris import *
 
 app = Flask(__name__)
-app.config['/']
+app.config['UPLOAD_FOLDER']="/"
 #File=str()
 @app.route('/')  
 def upload():  
