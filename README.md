@@ -16,7 +16,7 @@ Specificatons of the file:
 4) File size should be <=600 KB.
 
 # Output
-Dictionary with Accuracy and Clusters and corresponding points assigned to each cluster.
+Dictionary with Accuracy and Clusters centroids alongwith a message showing number of iterations and lowest and highest errors.
 
 # Publication details
 
