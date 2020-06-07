@@ -44,16 +44,18 @@ def main(Name):
         import pandas as pd
         dataset = pd.read_csv(Name)
         train = dataset.iloc[:, 0:len(dataset.columns)-2].values
+        N_cols=len(dataset.columns)-1
         Y = list(dataset.iloc[:, len(dataset.columns)-1].values)
         #from sklearn.preprocessing import MinMaxScaler
-        from sklearn.manifold import TSNE
-        train=TSNE(n_components=3).fit_transform(train)
+        #from sklearn.manifold import TSNE
+        #train=TSNE(n_components=3).fit_transform(train)
     else:
         iris=load_iris()
         train=iris.data
         Y=iris.target
+        N_cols=3
     
-    points=[Point(i[:3]) for i in train]#Method for converting 2 arrays to(x,y) form
+    points=[Point(i[:N_cols]) for i in train]#Method for converting 2 arrays to(x,y) form
 
     # Cluster those data!
     iteration_count =5 #Scope of improvement using GRADIENT DELUDE algo.Decide the value automatically.
