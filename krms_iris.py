@@ -47,7 +47,8 @@ def main(Name):
         train = dataset.iloc[:, 0:len(dataset.columns)-2].values
         N_cols=len(dataset.columns)-1
         Y = list(dataset.iloc[:, len(dataset.columns)-1].values)
-        num_clusters = len(list(set(Y)))           
+        num_clusters = len(list(set(Y)))  
+        i_flag=0
         #from sklearn.preprocessing import MinMaxScaler
         #from sklearn.manifold import TSNE
         #train=TSNE(n_components=3).fit_transform(train)
