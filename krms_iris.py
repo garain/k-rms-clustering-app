@@ -299,7 +299,7 @@ def getDistance(a, b):
         accumulatedDifference += squareDifference
 
     #return math.sqrt(accumulatedDifference/a.n)
-    return (accumulatedDifference/a.n)#[For Manhattan error]
+    return (accumulatedDifference)#[For Manhattan error]
 
 def makeRandomPoint(n, lower, upper):
     '''
