@@ -37,7 +37,7 @@ def main(Name):
     
 
     # When do we say the process has 'converged' and stop updating clusters?
-    cutoff = .01#Scope of improvement.Making it automatic using DL algos.For faster speeds increase its value.
+    cutoff = .1#Scope of improvement.Making it automatic using DL algos.For faster speeds increase its value.
     
     # Generate some points to cluster
     # Note: If you want to use your own data, set points equal to it here.
