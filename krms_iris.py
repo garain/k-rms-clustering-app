@@ -49,20 +49,22 @@ def main(Name):
         Y = list(dataset.iloc[:, len(dataset.columns)-1].values)
         num_clusters = len(list(set(Y)))  
         i_flag=0
+        points=[Point(i[:N_cols]) for i in train]
         #from sklearn.preprocessing import MinMaxScaler
         #from sklearn.manifold import TSNE
         #train=TSNE(n_components=3).fit_transform(train)
     except:
         iris=load_iris()
-        train=iris.data
+        X=iris.data
         Y=iris.target
         cutoff=0.2
         N_cols=3
         num_clusters = 3
         i_flag=1
+        points=[Point([X[i][2],X[i][3],X[i][1]]) for i in range(len(X))]
     
-    points=[Point(i[:N_cols]) for i in train]#Method for converting 2 arrays to(x,y) form
-
+    #Method for converting 2 arrays to(x,y) form
+    #print(points)
     # Cluster those data!
     iteration_count =5 #Scope of improvement using GRADIENT DELUDE algo.Decide the value automatically.
     best_clusters = iterative_krms(
@@ -299,7 +301,7 @@ def getDistance(a, b):
         accumulatedDifference += squareDifference
 
     #return math.sqrt(accumulatedDifference/a.n)
-    return (accumulatedDifference)#[For Manhattan error]
+    return (accumulatedDifference/a.n)#[For Manhattan error]
 
 def makeRandomPoint(n, lower, upper):
     '''
