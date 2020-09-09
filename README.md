@@ -1,4 +1,4 @@
-# Deployed Flask implementation of K-RMS Algorithm in Heroku
+# Deployed Flask implementation of K-RMS Algorithm in Heroku [![HitCount](http://hits.dwyl.com/garain/k-rms-clustering-app.svg)](http://hits.dwyl.com/garain/k-rms-clustering-app)
 
 This is the web app created as an implementation of the publication "K-RMS Algorithm" that uses **Flask** and **Gunicorn** for deploying.
 
