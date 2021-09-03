@@ -1,12 +1,11 @@
-# Deployed Flask implementation of K-RMS Algorithm in Heroku [![HitCount](http://hits.dwyl.com/garain/k-rms-clustering-app.svg)](http://hits.dwyl.com/garain/k-rms-clustering-app)
-
+# Deployed Flask implementation of K-RMS Algorithm in Heroku 
 This is the web app created as an implementation of the publication "K-RMS Algorithm" that uses **Flask** and **Gunicorn** for deploying.
 
 
 If we want to deploy our project to Heroku, we need a **Web Server Gateway Interface** (WSGI) such as **Gunicorn**.
 
 # App link
-[Link to app](https://garain.vision/Authentication/clusteringKRMS)
+[Link to app](https://garain.github.io/Authentication/clusteringKRMS)
 
 # Usage of the app
 By default if any file with wrong file format is provided, the results shown as output are calculated on the Iris dataset.
